@@ -1,2 +1,2 @@
 # myOnvent-event
-Created with CodeSandbox
+A website for registering and viewing events. Built with React & React-Bootstrap.
