@@ -9,9 +9,9 @@ const EventView = (props) => {
     //console.log(type(events));
 
     useEffect(() => {
-        load().then(savedEvents => {setEvents([...savedEvents])})
+        load().then(savedEvents => {setEvents([...savedEvents]); setHasLoaded(savedEvents.length > 0)})
         .catch(err => console.error(err));
-        setHasLoaded(true);
+        // setHasLoaded(events.length > 0);
     }, []);
 
 

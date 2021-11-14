@@ -16,9 +16,6 @@ const EventForm = (props) => {
 
   useEffect(() => {validateDate(currEvent)}, [currEvent]);
 
-  // const getNewEvents(currEvent){
-  //   this.setEvents(())
-  // }
 
   const saveEvent = () => {
     save(currEvent).catch(err => console.error(err));
@@ -28,12 +25,6 @@ const EventForm = (props) => {
 
   const handleOnSubmit = (event) => {
     event.preventDefault();
-
-    // load().then(savedEvents => setEvents(savedEvents))
-    // .catch(err =>{
-    //   console.error(err);
-    // });
-
     saveEvent();
 
     Array.from(document.querySelectorAll('input')).forEach(
