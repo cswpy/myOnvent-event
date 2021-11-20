@@ -8,9 +8,17 @@ const dbo = require('../db/conn');
 eventRoutes.route('/view').get(async function (_req, res) {
   const dbConnect = dbo.getDb();
 
+  const pipeline = [
+    {
+      '$sort': {
+        'createdAt': -1
+      }
+    }
+  ];
+
   dbConnect
     .collection('events')
-    .find({})
+    .aggregate(pipeline)
     .toArray(function (err, result) {
       if (err) {
         res.status(400).send('Error fetching events!');
@@ -51,6 +59,21 @@ eventRoutes.route('/register').post(function (req, res) {
 
   }
 
+});
+
+eventRoutes.route('/clear').get(function (req, res) {
+  const dbConnect = dbo.getDb();
+
+  dbConnect
+  .collection('events')
+  .deleteMany({}, function (err, result) {
+    if (err) {
+      res.status(400).send('Error deleting events!');
+    } else{
+      console.log(`Cleared ${result.deletedCount} events.`);
+      res.status(204).send(`Successfully deleted ${result.deletedCount} events`);
+    }
+  });
 });
 
 module.exports = eventRoutes;

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
-import { save } from "./eventModel"
+import { insert } from "../conn"
 
 
 const EventForm = (props) => {
@@ -18,8 +18,7 @@ const EventForm = (props) => {
 
 
   const saveEvent = () => {
-    save(currEvent).catch(err => console.error(err));
-    console.log(currEvent);
+    insert(currEvent);
   }
 
 
