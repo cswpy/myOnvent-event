@@ -54,7 +54,7 @@ const EventView = (props) => {
         }
         else {
             return(
-                <div>
+                <div class='body'>
                     <h1>No data found</h1>
                 </div>);
         }
