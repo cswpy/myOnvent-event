@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import {load} from "./eventModel"
-import {Table} from "react-bootstrap"
+import {load, clear} from "./eventModel"
+import {Table, Button} from "react-bootstrap"
 
 const EventView = (props) => {
     const [events, setEvents] = useState([]);
@@ -11,13 +11,19 @@ const EventView = (props) => {
         .catch(err => console.error(err));
     }, []);
 
+    const clearData = () => {
+        clear().then(window.location.reload());
+    };
 
     const render = () => {
         if (hasLoaded){
             console.log(events);
             return(
-                <div>
+                <div class='body'>
                 <h1>List of Events</h1>
+                <Button onClick={clearData} variant="outline-danger" id="del-btn">
+                    Delete
+                </Button>
                 <div> 
                     <Table hover striped bordered>
                         <thead>

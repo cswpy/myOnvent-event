@@ -40,3 +40,15 @@ export function load() {
       }
     });
   }
+
+  export function clear() {
+    return new Promise((resolve, reject) => {
+      try {
+        storage.clear();
+        resolve();
+      } catch (err) {
+        reject(err);
+      }
+    });
+  }
+  

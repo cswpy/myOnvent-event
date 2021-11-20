@@ -7,3 +7,16 @@ body {
   font-family: Arial;
   margin-top: 30px;
 }
+
+.body{
+  margin: 2rem;
+}
+
+h1 {
+  display: inline-block;
+  margin-bottom: 1rem;
+}
+
+#del-btn {
+  float: right;
+}
