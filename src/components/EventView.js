@@ -1,17 +1,14 @@
 import React, { useEffect, useState } from "react";
-import {load, create, save } from "./eventModel"
+import {load} from "./eventModel"
 import {Table} from "react-bootstrap"
 
 const EventView = (props) => {
     const [events, setEvents] = useState([]);
     const [hasLoaded, setHasLoaded] = useState(false);
-    // console.log(events);
-    //console.log(type(events));
 
     useEffect(() => {
         load().then(savedEvents => {setEvents([...savedEvents]); setHasLoaded(savedEvents.length > 0)})
         .catch(err => console.error(err));
-        // setHasLoaded(events.length > 0);
     }, []);
 
 

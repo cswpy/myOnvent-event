@@ -10,8 +10,8 @@ const Header = props => {
       <Container>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Nav className="navbar">
-          <Nav.Link href="/">Event Registration</Nav.Link>
-          <Nav.Link href="/events">View Events</Nav.Link>
+          <Nav.Link href="/manage-event">Event Registration</Nav.Link>
+          <Nav.Link href="/">View Events</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
@@ -25,8 +25,8 @@ const AppRouter = () => (
       <div className="container">
         <Header />
         <Routes>
-          <Route element={<EventForm/>} path="/" exact={true} />
-          <Route element={<EventView/>} path="/events" />
+          <Route element={<EventForm/>} path="/manage-event" exact={true} />
+          <Route element={<EventView/>} path="/" />
         </Routes>
       </div>
     </BrowserRouter>
